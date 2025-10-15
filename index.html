@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Catcher</title>
+  </head>
+  <body>
+    <header>
+      <p>Phaser demon | Apple Catcher</p>
+    </header>
+    <main>
+      <canvas id="gameCanvas"></canvas>
+      <div id="gameStartDiv" class="gameUI">
+        <h1>Apple Catcher</h1>
+        <p>Tu as 30 secondes pour attraper les pommes !!</p>
+        <p>Si tu en attraper plus que 30 tu gagnes.</p>
+        <p>Si en attraper moins que 30 tu perds.</p>
+        <p>Appuie sur le bouton start pour commencer.</p>
+        <button id="gameStartBtn"><p>Start</p></button>
+      </div>
+      <div id="gameEndDiv" class="gameUI">
+        <h1>Tu as <span id="gameWinLoseSpan"></span></h1>
+        <h1>Score Final : <span id="gameEndScoreSpan"></span></h1>
+        <p>F5 ou rafraîchir la page pour le relancer une partie.</p>
+      </div>
+    </main>
+    <footer>
+      <p>Created By LeRoux</p>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
