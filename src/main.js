@@ -2,7 +2,7 @@ import './style.css'
 import Phaser from 'phaser'
 
 const sizes = { width: 500, height: 500 }
-const speedDown = 500;
+const speedDown = 500
 
 const gameCanvas = document.querySelector("#gameCanvas");
 const gameStartDiv = document.querySelector("#gameStartDiv");
@@ -32,7 +32,6 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
-
     this.add.image(0, 0, "bg").setOrigin(0, 0);
 
     this.player = this.physics.add.image(0, sizes.height - 100, "basket").setOrigin(0, 0);
@@ -95,13 +94,13 @@ class GameScene extends Phaser.Scene {
 
   gameOver() {
     this.sys.game.destroy(true);
-
     gameEndScoreSpan.textContent = this.points;
-    gameWinLoseSpan.textContent = this.points >= 35 ? "Gagné !" : "Perdu !";
+    gameWinLoseSpan.textContent = this.points >= 30 ? "Gagné !" : "Perdu !";
     gameEndDiv.style.display = "flex";
   }
 }
 
+// ⚙️ Configuration du jeu sans scène au départ
 const config = {
   type: Phaser.WEBGL,
   width: sizes.width,
@@ -111,10 +110,14 @@ const config = {
     default: "arcade",
     arcade: { gravity: { y: speedDown }, debug: true }
   },
-  scene: [GameScene]
+  scene: [] // <-- Aucune scène active au départ
 };
 
 const game = new Phaser.Game(config);
+
+
+game.scene.add("scene-game", GameScene);
+
 
 gameStartBtn.addEventListener("click", () => {
   gameStartDiv.style.display = "none";
