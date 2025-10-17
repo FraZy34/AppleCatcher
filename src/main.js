@@ -2,7 +2,7 @@ import './style.css'
 import Phaser from 'phaser'
 
 const sizes = { width: 500, height: 500 }
-const speedDown = 500;
+const speedDown = 500
 
 const gameCanvas = document.querySelector("#gameCanvas");
 const gameStartDiv = document.querySelector("#gameStartDiv");
@@ -32,10 +32,9 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
-
     this.add.image(0, 0, "bg").setOrigin(0, 0);
 
-    this.player = this.physics.add.image(0, sizes.height - 100, "basket").setOrigin(0, 0);
+    this.player = this.physics.add.image(250, sizes.height - 100, "basket").setOrigin(0, 0);
     this.player.setImmovable(true);
     this.player.body.allowGravity = false;
     this.player.setCollideWorldBounds(true);
@@ -43,6 +42,7 @@ class GameScene extends Phaser.Scene {
       .setOffset(this.player.width / 10, this.player.height - this.player.height / 5);
 
     this.target = this.physics.add.image(0, 0, "apple").setOrigin(0, 0);
+    this.target.setX(this.getRandomX());
     this.target.setMaxVelocity(0, speedDown);
 
     this.physics.add.overlap(this.target, this.player, this.targetHit, null, this);
@@ -95,9 +95,8 @@ class GameScene extends Phaser.Scene {
 
   gameOver() {
     this.sys.game.destroy(true);
-
     gameEndScoreSpan.textContent = this.points;
-    gameWinLoseSpan.textContent = this.points >= 35 ? "Gagné !" : "Perdu !";
+    gameWinLoseSpan.textContent = this.points >= 30 ? "Gagné !" : "Perdu !";
     gameEndDiv.style.display = "flex";
   }
 }
@@ -111,10 +110,14 @@ const config = {
     default: "arcade",
     arcade: { gravity: { y: speedDown }, debug: true }
   },
-  scene: [GameScene]
+  scene: [] 
 };
 
 const game = new Phaser.Game(config);
+
+
+game.scene.add("scene-game", GameScene);
+
 
 gameStartBtn.addEventListener("click", () => {
   gameStartDiv.style.display = "none";
