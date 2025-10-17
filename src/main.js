@@ -10,6 +10,7 @@ const gameStartBtn = document.querySelector("#gameStartBtn");
 const gameEndDiv = document.querySelector("#gameEndDiv");
 const gameWinLoseSpan = document.querySelector("#gameWinLoseSpan");
 const gameEndScoreSpan = document.querySelector("#gameEndScoreSpan");
+const gameRestartBtn = document.querySelector("#gameRestartBtn");
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -94,11 +95,12 @@ class GameScene extends Phaser.Scene {
   }
 
   gameOver() {
-    this.sys.game.destroy(true);
-    gameEndScoreSpan.textContent = this.points;
-    gameWinLoseSpan.textContent = this.points >= 30 ? "Gagné !" : "Perdu !";
-    gameEndDiv.style.display = "flex";
-  }
+  this.scene.pause();
+  this.scene.stop();
+  gameEndScoreSpan.textContent = this.points;
+  gameWinLoseSpan.textContent = this.points >= 30 ? "Gagné !" : "Perdu !";
+  gameEndDiv.style.display = "flex";
+}
 }
 
 // ⚙️ Configuration du jeu sans scène au départ
@@ -124,3 +126,9 @@ gameStartBtn.addEventListener("click", () => {
   gameStartDiv.style.display = "none";
   game.scene.start("scene-game");
 });
+
+gameRestartBtn.addEventListener("click", () => {
+  gameEndDiv.style.display = "none";
+  game.scene.start("scene-game");
+});
+
