@@ -101,6 +101,7 @@ class GameScene extends Phaser.Scene {
   }
 }
 
+// ⚙️ Configuration du jeu sans scène au départ
 const config = {
   type: Phaser.WEBGL,
   width: sizes.width,
