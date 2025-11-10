@@ -33,6 +33,9 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
+    this.points = 0;
+    this.remainingTime = 30;
+    if (this.timedEvent) this.timedEvent.remove();
     this.add.image(0, 0, "bg").setOrigin(0, 0);
 
     this.player = this.physics.add.image(250, sizes.height - 100, "basket").setOrigin(0, 0);
