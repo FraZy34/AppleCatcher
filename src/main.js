@@ -1,4 +1,4 @@
-import * as Phaser from 'https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js';
+import * as Phaser from 'https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.esm.js';
 
 const sizes = { width: 500, height: 500 }
 const speedDown = 500
