@@ -1,6 +1,10 @@
 import './style.css';
 import 'phaser';
 
+import bgImg from '/assets/bg.png';
+import basketImg from '/assets/basket.png';
+import appleImg from '/assets/apple.png';
+
 const sizes = { width: 500, height: 500 }
 const speedDown = 500
 
@@ -27,9 +31,9 @@ class GameScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("bg", "/assets/bg.png");
-    this.load.image("basket", "/assets/basket.png");
-    this.load.image("apple", "/assets/apple.png");
+    this.load.image("bg", bgImg);
+    this.load.image("basket", basketImg);
+    this.load.image("apple", appleImg);
   }
 
   create() {
