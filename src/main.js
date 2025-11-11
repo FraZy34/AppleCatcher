@@ -118,7 +118,7 @@ const config = {
   canvas: gameCanvas,
   physics: {
     default: "arcade",
-    arcade: { gravity: { y: speedDown }, debug: true }
+    arcade: { gravity: { y: speedDown }, debug: false}
   },
   scene: [] 
 };
