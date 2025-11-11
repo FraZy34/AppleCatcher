@@ -1,4 +1,5 @@
-import * as Phaser from 'https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.esm.js';
+import './style.css';
+import 'phaser';
 
 const sizes = { width: 500, height: 500 }
 const speedDown = 500
@@ -26,9 +27,9 @@ class GameScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("bg", "./public/assets/bg.png");
-    this.load.image("basket", "./public/assets/basket.png");
-    this.load.image("apple", "./public/assets/apple.png");
+    this.load.image("bg", "/assets/bg.png");
+    this.load.image("basket", "/assets/basket.png");
+    this.load.image("apple", "/assets/apple.png");
   }
 
   create() {
